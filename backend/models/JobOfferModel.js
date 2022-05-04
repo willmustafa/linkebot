@@ -17,9 +17,17 @@ const jobOfferSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    localizacao: {
+    state: {
         type: String,
-        require: true
+        require: false
+    },
+    workPlace: {
+        type: String,
+        require: false
+    },
+    level: {
+        type: Array,
+        require: false
     },
     jobId: {
         type: Number,

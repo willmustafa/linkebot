@@ -1,9 +1,19 @@
 const express = require('express');
-const jobOffer = require('../models/jobOffer');
+const jobOffer = require('../models/JobOfferModel');
 const router = express.Router();
 const jobScrapper = require('../scrapper/jobScrapper');
 
 router.get('/', (req, res) => {
+    jobOffer.find({}, (error, data) => {
+        if(error){
+            console.error(error)
+        }else{
+            res.json(data)
+        }
+    })
+})
+
+router.get('/by-state', (req, res) => {
     jobOffer.find({}, (error, data) => {
         if(error){
             console.error(error)

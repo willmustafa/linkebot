@@ -1,7 +1,7 @@
 async function run(){
     const fileManager = require('../scrapper/utils/file-manager');
     const frameworkList = (await fileManager.readFile('pre-data/framework-list.txt')).split('\n');
-    const Framework = require('../models/framework');
+    const Framework = require('../models/FrameworkModel');
 
     return new Promise(async (resolve, reject) => {
         for (let i = 0; i < frameworkList.length; i++) {

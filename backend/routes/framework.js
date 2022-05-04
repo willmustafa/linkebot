@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const framework = require('../models/framework');
-const frameworkByJob = require('../models/FrameworkByJob');
+const framework = require('../models/FrameworkModel');
+const frameworkByJob = require('../models/FrameworkByJobModel');
 
 router.get('/', (req, res) => {
     framework.find({}, (error, data) => {

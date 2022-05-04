@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 
 app.use('/framework', require('./routes/framework'))
 app.use('/jobs', require('./routes/jobs'))
+app.use('/survey', require('./routes/survey'))
 
 mongoose.connect(
     process.env.mongo
