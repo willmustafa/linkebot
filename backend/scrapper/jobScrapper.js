@@ -48,7 +48,7 @@ async function runScrapper() {
 
         console.log(`Inserindo no banco: ${res.title}`)
         try {
-            await jobOffer.updateOne({text: res.text, jobId: res.jobId, date: new Date().toLocaleDateString()},
+            await jobOffer.updateOne({text: res.text, jobId: res.jobId},
             res, {
              upsert: true   
             })
@@ -100,6 +100,12 @@ async function runScrapper() {
             {
                 query: "Desenvolvedor"
             },
+            {
+                query: "Engenharia de software"
+            },
+            {
+                query: "Ciência de dados"
+            }
         ], { // Global options, will be merged individually with each query options
             locations: ["Brasil"],
             optimize: true,
