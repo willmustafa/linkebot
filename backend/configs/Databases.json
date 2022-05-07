@@ -1,0 +1,91 @@
+{
+    "Databases": [
+        {
+            "name": "MySQL",
+            "variations": [
+            ],
+            "linkedTo": "SQL"
+        },
+        {
+            "name": "PostgreSQL",
+            "variations": [
+                "Postgress",
+                "PLSQL"
+            ],
+            "linkedTo": "SQL"
+        },
+        {
+            "name": "SQLite",
+            "variations": [
+            ],
+            "linkedTo": "SQL"
+        },
+        {
+            "name": "MongoDB",
+            "variations": [
+            ],
+            "linkedTo": "NoSQL"
+        },
+        {
+            "name": "Microsoft SQL Server",
+            "variations": [
+                "SQL Server"
+            ],
+            "linkedTo": "SQL"
+        },
+        {
+            "name": "Redis",
+            "variations": [
+            ],
+            "linkedTo": "NoSQL"
+        },
+        {
+            "name": "MariaDB",
+            "variations": [
+            ],
+            "linkedTo": "SQL"
+        },
+        {
+            "name": "Firebase",
+            "variations": [
+            ],
+            "linkedTo": "SQL"
+        },
+        {
+            "name": "Elasticsearch",
+            "variations": [
+            ],
+            "linkedTo": "SQL"
+        },
+        {
+            "name": "Oracle",
+            "variations": [
+            ],
+            "linkedTo": "SQL"
+        },
+        {
+            "name": "DynamoDB",
+            "variations": [
+            ],
+            "linkedTo": "NoSQL"
+        },
+        {
+            "name": "Cassandra",
+            "variations": [
+            ],
+            "linkedTo": "NoSQL"
+        },
+        {
+            "name": "IBM DB2",
+            "variations": [
+            ],
+            "linkedTo": "SQL"
+        },
+        {
+            "name": "Couchbase",
+            "variations": [
+            ],
+            "linkedTo": "NoSQL"
+        }
+    ]
+}

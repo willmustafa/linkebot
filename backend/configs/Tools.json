@@ -1,0 +1,102 @@
+{
+    "Tools": [
+        {
+            "name": "Git",
+            "variations": [
+                "Github",
+                "Gitlab"
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Docker",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Yarn",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Kubernetes",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Unity 3D",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Ansible",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Terraform",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Xamarin",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Unreal Engine",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Puppet",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Deno",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Chef",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Flow",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Pulumi",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Wordpress",
+            "variations": [
+            ],
+            "linkedTo": "PHP"
+        },
+        {
+            "name": "Magento",
+            "variations": [
+            ],
+            "linkedTo": "PHP"
+        }
+    ]
+}

@@ -15,6 +15,10 @@ const jobOfferSchema = mongoose.Schema({
     },
     LinkedinLink: {
         type: String,
+        require: false
+    },
+    fullLocation: {
+        type: String,
         require: true
     },
     state: {
@@ -32,6 +36,10 @@ const jobOfferSchema = mongoose.Schema({
     jobId: {
         type: Number,
         require: true
+    },
+    languages: {
+        type: Object,
+        require: false
     },
     date: { type: Date, default: new Date().toLocaleDateString() }
 })

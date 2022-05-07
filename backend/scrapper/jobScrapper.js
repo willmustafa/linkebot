@@ -7,19 +7,7 @@ const {
     events,
 } = require("linkedin-jobs-scraper");
 const jobOffer = require('../models/JobOfferModel');
-const framework = require('../models/FrameworkModel');
-const frameworkByJob = require('../models/FrameworkByJobModel');
-let frameworkList = '';
-
-(async () => {
-    framework.find({}, (error, data) => {
-        if (error) {
-            console.error(error)
-        } else {
-            frameworkList = data
-        }
-    })
-})()
+const wordFinder = require('./utils/wordFinder');
 
 async function runScrapper() {
     // Each scraper instance is associated with one browser.
@@ -42,10 +30,12 @@ async function runScrapper() {
             title: data.title,
             text: data.description,
             linkedinLink: data.link,
+            fullLocation: data.place,
+            state: wordFinder.findState(data.place),
+            workPlace: wordFinder.regimeTrabalho(data.place),
+            level: wordFinder.nivelConhecimento(data.title),
             jobId: Number.parseInt(data.jobId),
-            state: findState(data.place),
-            workPlace: regimeTrabalho(data.place),
-            level: nivelConhecimento(data.title)
+            languages: wordFinder.encontrarFrameworks(data.description)
         }
 
         console.log(`Inserindo no banco: ${res.title}`)
@@ -56,10 +46,6 @@ async function runScrapper() {
                 res, {
                     upsert: true
                 })
-            
-                if(upsert.upsertedCount){
-                    await findFramework(res.text, res.jobId)
-                }
         } catch (error) {
             console.error(error)
         }
@@ -80,12 +66,6 @@ async function runScrapper() {
     scraper.on(events.puppeteer.browser.targetchanged, () => {});
     scraper.on(events.puppeteer.browser.targetdestroyed, () => {});
     scraper.on(events.puppeteer.browser.disconnected, () => {});
-
-    // Custom function executed on browser side to extract job description [optional]
-    const descriptionFn = () => document.querySelector(".description__text")
-        .innerText
-        .replace(/[\s\n\r]+/g, " ")
-        .trim();
 
     // Run queries concurrently    
     await Promise.all([
@@ -113,129 +93,6 @@ async function runScrapper() {
     await scraper.close();
 }
 
-async function findFramework(word, jobId) {
-    let keywords = []
-    for (let i = 0; i < frameworkList.length; i++) {
-
-        const name = `\\b${escapeRegex(frameworkList[i].name)}(?!\\w)`
-        const nameRegex = new RegExp(name, "i")
-
-        if (nameRegex.test(word)) {
-            keywords.push({
-                framework: frameworkList[i].name,
-                variations: '',
-                jobId
-            })
-        }
-
-        let secundarios = frameworkList[i].variations.filter(el => {
-            if (el !== "") {
-                const variation = `\\b${escapeRegex(el)}(?!\\w)`
-                const variationRegex = new RegExp(variation, "i")
-
-                return variationRegex.test(word)
-            }
-        })
-
-        if (secundarios.length > 0) {
-            secundarios.forEach(el => {
-                keywords.push({
-                    framework: frameworkList[i].name,
-                    variations: el,
-                    jobId
-                })
-            });
-        }
-    }
-
-    if (keywords.length > 0) {
-        try {
-            await frameworkByJob.insertMany(keywords)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-}
-
-function findState(string) {
-    const word = wordsInArray([
-        "Acre",
-        "Alagoas",
-        "Amapá",
-        "Amazonas",
-        "Bahia",
-        "Ceará",
-        "Espirito Santo",
-        "Goiás",
-        "Maranhão",
-        "Mato Grosso",
-        "Mato Grosso do Sul",
-        "Minas Gerais",
-        "Pará",
-        "Paraíba",
-        "Paraná",
-        "Pernambuco",
-        "Piauí",
-        "Rio de Janeiro",
-        "Rio Grande do Norte",
-        "Rio Grande do Sul",
-        "Rondônia",
-        "Roraima",
-        "Santa Catarina",
-        "São Paulo",
-        "Sergipe",
-        "Tocantins",
-        "Distrito Federal"
-    ], string)
-
-    return word == string ? string : word[0]
-}
-
-function regimeTrabalho(string) {
-    const words = wordsInArray([
-        "Remoto",
-        "Híbrido",
-        "Presencial"
-    ], string)
-
-    return words == string ? "Presencial" : words[0]
-}
-
-function nivelConhecimento(string) {
-    const words = wordsInArray([
-        "Sênior",
-        "Pleno",
-        "Junior",
-        "Pl",
-        "Jr",
-        "Sn",
-        "Júnior",
-        "Senior"
-    ], string)
-
-    return words == string ? ["N/A"] : words
-}
-
-function wordsInArray(array, string){
-    let filteredArray = array.filter(el => {
-        const variation = `\\b${escapeRegex(el)}(?!\\w)`
-        const variationRegex = new RegExp(variation, "i")
-
-        return variationRegex.test(string)
-    })
-
-    if (filteredArray.length > 0) {
-        return filteredArray
-    } else {
-        return string
-    }
-}
-
-function escapeRegex(string) {
-    return string.replaceAll('+', '\\+');
-}
-
 module.exports = {
-    runScrapper,
-    findFramework
+    runScrapper
 }

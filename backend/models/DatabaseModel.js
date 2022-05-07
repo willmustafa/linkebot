@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const FrameworkByJobSchema = mongoose.Schema({
-    framework: {
+const DatabaseSchema = mongoose.Schema({
+    language: {
         type: String,
         require: true
     },
@@ -16,6 +16,6 @@ const FrameworkByJobSchema = mongoose.Schema({
     date: { type: Date, default: new Date().toLocaleDateString() }
 })
 
-const FrameworkByJob = mongoose.model('frameworkByJob', FrameworkByJobSchema)
+const Databases = mongoose.model('database', DatabaseSchema)
 
-module.exports = FrameworkByJob
+module.exports = Databases

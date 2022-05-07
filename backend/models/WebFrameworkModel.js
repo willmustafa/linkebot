@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const FrameworkSchema = mongoose.Schema({
-    name: {
+const WebFrameworkSchema = mongoose.Schema({
+    language: {
         type: String,
         require: true
     },
@@ -11,6 +11,6 @@ const FrameworkSchema = mongoose.Schema({
     }
 })
 
-const Framework = mongoose.model('framework', FrameworkSchema)
+const WebFramework = mongoose.model('webframework', WebFrameworkSchema)
 
-module.exports = Framework
+module.exports = WebFramework

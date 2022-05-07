@@ -1,25 +1,5 @@
 import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
-
-ChartJS.register(
-  CategoryScale,
-  ChartDataLabels,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
 
 export const options = {
   indexAxis: 'y',
@@ -61,19 +41,20 @@ export const options = {
   }
 };
 
-export const data = {
-  labels: ['Presencial', 'Remoto', 'Híbrido'],
-  datasets: [
-    {
-      data: [500, 300, 200],
-      backgroundColor: '#ffae11',
-      categoryPercentage: 1.0,
-      barPercentage: 1.0
-    }
-  ]
-};
+const HorizontalChart = (dataInput) => {
+  
+  const data = {
+    labels: dataInput.data.map(el => el._id),
+    datasets: [
+      {
+        data: dataInput.data.map(el => el.qtd),
+        backgroundColor: '#ffae11',
+        categoryPercentage: 1.0,
+        barPercentage: 1.0
+      }
+    ]
+  };
 
-const HorizontalChart = () => {
   return <Bar options={options} data={data} />;
 }
 

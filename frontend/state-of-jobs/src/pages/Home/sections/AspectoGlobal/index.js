@@ -31,7 +31,7 @@ const AspectoGlobal = () => {
                     Java lidera o número de vagas!
                 </Title>
                 <p>São 400 vagas para a linguagem Java.</p>
-                <HorizontalChart/>
+                
             </article>
             <article>
                 <BackgroundInfo>30%</BackgroundInfo>
@@ -39,7 +39,7 @@ const AspectoGlobal = () => {
                     MySql continua sendo o banco de dados mais requisitado
                 </Title>
                 <p>30% das vagas é requer conhecimento em MySql.</p>
-                <HorizontalChart/>
+                
             </article>
     
         </div>
@@ -50,7 +50,7 @@ const AspectoGlobal = () => {
                     React é o frameworks para frontend mais buscado
                 </Title>
                 <p>120 vagas para programadores com conhecimento em React.</p>
-                <MapChart />
+                
             </article>
             <article>
                 <BackgroundInfo>60</BackgroundInfo>
@@ -58,7 +58,7 @@ const AspectoGlobal = () => {
                     NodeJs é o framework para backend mais utilizado
                 </Title>
                 <p>São 60 vagas para desenvolvedores em NodeJs.</p>
-                <HorizontalChart/>
+                
             </article>
         </div>
     </div>

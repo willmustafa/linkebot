@@ -2,11 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
 
 // MIDDLEWARES
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.json({message: 'API linkebot!'})
@@ -20,7 +22,7 @@ mongoose.connect(
     process.env.mongo
 )
 .then(() => {
-    app.listen(3000)
+    app.listen(3030)
 })
 .catch((err) => {
     console.log("Deu ruim")
