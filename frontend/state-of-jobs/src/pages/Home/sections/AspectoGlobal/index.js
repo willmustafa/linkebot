@@ -1,14 +1,95 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SubtitleJumbo from '../../../../components/UI/SubtitleJumbo'
 import TitleJumbo from '../../../../components/UI/TitleJumbo'
-import Title from '../../../../components/UI/Title'
-import MapChart from '../../../../components/UI/charts/MapChart'
-import DoughnutChart from '../../../../components/UI/charts/DoughnutChart'
-import BackgroundInfo from '../../../../components/UI/BackgroundInfo'
-import HorizontalChart from '../../../../components/UI/charts/HorizontalChart'
-
+import Article from '../../../../components/UI/Articles/Article'
 
 const AspectoGlobal = () => {
+    const [totalSurvey, setTotalSurvey] = useState(100)
+    const [languageHaveWorkedWith, setLanguageHaveWorkedWith] = useState([{
+        qtd: 100,
+        _id: "JavaScript"
+    }])
+    const [DatabaseHaveWorkedWith, setDatabaseHaveWorkedWith] = useState([{
+        qtd: 100,
+        _id: "MySql"
+    }])
+    const [PlatformHaveWorkedWith, setPlatformHaveWorkedWith] = useState([{
+        qtd: 100,
+        _id: "Cloud"
+    }])
+    const [WebframeHaveWorkedWith, setWebframeHaveWorkedWith] = useState([{
+        qtd: 100,
+        _id: "Cloud"
+    }])
+    const [MiscTechHaveWorkedWith, setMiscTechHaveWorkedWith] = useState([{
+        qtd: 100,
+        _id: "Cloud"
+    }])
+    const [ToolsTechHaveWorkedWith, setToolsTechHaveWorkedWith] = useState([{
+        qtd: 100,
+        _id: "Cloud"
+    }])
+    
+
+    const getPercentage = (value) => {
+        return ((value/totalSurvey)*100).toFixed(0)
+    }
+
+    const mapPercentage = (array) => {
+        return array.map(el => {
+            return {
+                qtd: getPercentage(el.qtd),
+                _id: el._id
+            }
+        })
+    }
+
+
+    useEffect(() => {
+        fetch('http://localhost:3030/survey/').then(res => res.json())
+        .then(data => {
+            setTotalSurvey(data);
+        })
+        .catch(error => console.error(error));
+
+        fetch('http://localhost:3030/survey/LanguageHaveWorkedWith').then(res => res.json())
+        .then(data => {
+            setLanguageHaveWorkedWith(data);
+        })
+        .catch(error => console.error(error));
+
+        fetch('http://localhost:3030/survey/DatabaseHaveWorkedWith').then(res => res.json())
+        .then(data => {
+            setDatabaseHaveWorkedWith(data);
+        })
+        .catch(error => console.error(error));
+
+        fetch('http://localhost:3030/survey/PlatformHaveWorkedWith').then(res => res.json())
+        .then(data => {
+            setPlatformHaveWorkedWith(data);
+        })
+        .catch(error => console.error(error));
+
+        fetch('http://localhost:3030/survey/WebframeHaveWorkedWith').then(res => res.json())
+        .then(data => {
+            setWebframeHaveWorkedWith(data);
+        })
+        .catch(error => console.error(error));
+
+        fetch('http://localhost:3030/survey/MiscTechHaveWorkedWith').then(res => res.json())
+        .then(data => {
+            setMiscTechHaveWorkedWith(data);
+        })
+        .catch(error => console.error(error));
+
+        fetch('http://localhost:3030/survey/ToolsTechHaveWorkedWith').then(res => res.json())
+        .then(data => {
+            setToolsTechHaveWorkedWith(data);
+        })
+        .catch(error => console.error(error));
+    }, [])
+
+
   return (
     <>
     <div className='d-flex'>
@@ -25,41 +106,26 @@ const AspectoGlobal = () => {
     </div>
     <div className='d-flex'>
         <div className="col-2">
-            <article>
-                <BackgroundInfo>400</BackgroundInfo>
-                <Title>
-                    Java lidera o número de vagas!
-                </Title>
-                <p>São 400 vagas para a linguagem Java.</p>
-                
-            </article>
-            <article>
-                <BackgroundInfo>30%</BackgroundInfo>
-                <Title>
-                    MySql continua sendo o banco de dados mais requisitado
-                </Title>
-                <p>30% das vagas é requer conhecimento em MySql.</p>
-                
-            </article>
-    
+            <Article data={languageHaveWorkedWith} inPercentage={true} totalSurvey={totalSurvey}>
+                {languageHaveWorkedWith[0]._id} é a linguagem mais usada pelos programadores
+            </Article>
+            <Article data={DatabaseHaveWorkedWith} inPercentage={true} totalSurvey={totalSurvey}>
+                {DatabaseHaveWorkedWith[0]._id} continua sendo o banco de dados mais utilizado
+            </Article>
+            <Article data={PlatformHaveWorkedWith} inPercentage={true} totalSurvey={totalSurvey}>
+                {PlatformHaveWorkedWith[0]._id} é a plataforma cloud mais utilizada
+            </Article>
         </div>
         <div className="col-2 tilted-col">
-            <article>
-                <BackgroundInfo>120</BackgroundInfo>
-                <Title>
-                    React é o frameworks para frontend mais buscado
-                </Title>
-                <p>120 vagas para programadores com conhecimento em React.</p>
-                
-            </article>
-            <article>
-                <BackgroundInfo>60</BackgroundInfo>
-                <Title>
-                    NodeJs é o framework para backend mais utilizado
-                </Title>
-                <p>São 60 vagas para desenvolvedores em NodeJs.</p>
-                
-            </article>
+            <Article data={WebframeHaveWorkedWith} inPercentage={true} totalSurvey={totalSurvey}>
+                {WebframeHaveWorkedWith[0]._id} é o Framework Web mais utilizada
+            </Article>
+            <Article data={MiscTechHaveWorkedWith} inPercentage={true} totalSurvey={totalSurvey}>
+                {MiscTechHaveWorkedWith[0]._id} é o framework mais utilizado
+            </Article>
+            <Article data={ToolsTechHaveWorkedWith} inPercentage={true} totalSurvey={totalSurvey}>
+                {ToolsTechHaveWorkedWith[0]._id} é a ferramenta mais utilizada
+            </Article>
         </div>
     </div>
     </>

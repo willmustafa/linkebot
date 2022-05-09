@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
 router.get('/by-state', (req, res) => {
     jobOffer.aggregate([
-        {$match: {state: {$nin: ["Brasil"]}}},
+        {$match: {state: {$nin: ["Brasil", null]}}},
         {
             $group: {
                 _id: {
@@ -31,7 +31,7 @@ router.get('/by-state', (req, res) => {
 
 router.get('/by-level', (req, res) => {
     jobOffer.aggregate([
-        {$match: {level: {$nin: ["N/A"]}}},
+        {$match: {level: {$nin: ["N/A", null]}}},
         {$project: { _id: 0, level: 1 } },
         {$unwind: "$level" },
         {$group: { _id: "$level", qtd: { $sum: 1 } }},
@@ -42,6 +42,7 @@ router.get('/by-level', (req, res) => {
 
 router.get('/workplace', (req, res) => {
     jobOffer.aggregate([
+        {$match: {workPlace: {$nin: ["N/A", null]}}},
         {$group: {_id: "$workPlace", qtd: {$sum: 1}}},
         {$sort: {qtd: -1}}
     ]).then((data)=> res.json(data))
@@ -49,7 +50,7 @@ router.get('/workplace', (req, res) => {
 
 router.get('/by-company', (req, res) => {
     jobOffer.aggregate([
-        {$match: {company: {$nin: ["", "GeekHunter", "Confidencial", "ProgramaThor", "Caderno Nacional", "BNE - Banco Nacional de Empregos"]}}},
+        {$match: {company: {$nin: ["", "GeekHunter", "Confidencial", "ProgramaThor", "Caderno Nacional", "BNE - Banco Nacional de Empregos", null]}}},
         {$group: {_id: "$company", qtd: {$sum: 1}}},
         {$sort: {qtd: -1}}
     ])

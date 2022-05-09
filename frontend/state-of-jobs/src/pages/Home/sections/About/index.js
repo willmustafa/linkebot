@@ -16,8 +16,8 @@ const About = () => {
           </ul>
           <p>Normalmente procuramos aprender primeiro aquilo que o mercado está requisitando, afinal, precisamos de emprego.</p>
           <p>Assim, criei um web scrapper para encontrar qual a demanda do mercado!</p>
-          <p>Mas por que parar por ai? Inspirado pelo <a href="">State of Js</a> e a <a href="">Pesquisa anual do Stack Overflow</a>, adicionei os dados das linguagens mais usadas no mundo, as mais amadas e odiadas, etc.</p>
-          <p>Quer participar deste projeto? Acesse o repositório no <a href="">GitHub</a> e deixe sua ideia!</p>
+          <p>Mas por que parar por ai? Inspirado pelo <a href="https://2021.stateofjs.com/en-US/">State of Js</a> e a <a href="https://insights.stackoverflow.com/survey/2021">Pesquisa anual do Stack Overflow</a>, adicionei os dados das linguagens mais usadas no mundo, as mais amadas e odiadas, etc.</p>
+          <p>Quer participar deste projeto? Acesse o repositório no <a href="https://github.com/willmustafa/linkebot">GitHub</a> e deixe sua ideia!</p>
           <p>Ou se quiser me contratar, estou em busca de emprego!</p>
         </div>
     </>

@@ -115,3 +115,8 @@ a{
 .mv-2{
   margin: 4rem 0 !important;
 }
+
+.z-index-2{
+  position: relative !important;
+  z-index: 2 !important;
+}

@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SubtitleJumbo from '../../../../components/UI/SubtitleJumbo'
 import TitleJumbo from '../../../../components/UI/TitleJumbo'
-import Title from '../../../../components/UI/Title'
-import MapChart from '../../../../components/UI/charts/MapChart'
-import DoughnutChart from '../../../../components/UI/charts/DoughnutChart'
-import BackgroundInfo from '../../../../components/UI/BackgroundInfo'
-import HorizontalChart from '../../../../components/UI/charts/HorizontalChart'
-import PolarAreaChart from '../../../../components/UI/charts/PolarAreaChart'
+import Article from '../../../../components/UI/Articles/Article'
 
 const Vagas = () => {
     const [vagas, setVagas] = useState(0)
@@ -68,41 +63,20 @@ const Vagas = () => {
     </div>
     <div className='d-flex'>
         <div className="col-2">
-            <article>
-                <BackgroundInfo>{nivelConhecimento[0].qtd}</BackgroundInfo>
-                <Title>
-                    A busca por profissional {nivelConhecimento[0]._id} está em alta!
-                </Title>
-                <p>São {nivelConhecimento[0].qtd} vagas para profissionais de nível {nivelConhecimento[0]._id}.</p>
-                <HorizontalChart data={nivelConhecimento} />
-            </article>
-            <article>
-                <BackgroundInfo>{workplace[0].qtd}</BackgroundInfo>
-                <Title>
-                    O trabalho {workplace[0]._id} ainda é uma preferência pelas empresas!
-                </Title>
-                <p>{workplace[0].qtd.toLocaleString('pt-BR')} das vagas é para a modalidade de trabalho {workplace[0]._id}.</p>
-                <HorizontalChart data={workplace} />
-            </article>
-    
+            <Article data={nivelConhecimento} inPercentage={false}>
+                A busca por profissional {nivelConhecimento[0]._id} está em alta!
+            </Article>
+            <Article data={workplace} inPercentage={false}>
+                O trabalho {workplace[0]._id} ainda é uma preferência pelas empresas!
+            </Article>
         </div>
         <div className="col-2 tilted-col">
-            <article>
-                <BackgroundInfo>{estado[0].qtd}</BackgroundInfo>
-                <Title>
-                    {estado[0]._id} lidera as buscas por profissionais de TI!
-                </Title>
-                <p>São {estado[0].qtd.toLocaleString('pt-BR')} vagas no estado.</p>
-                <HorizontalChart data={estado} />
-            </article>
-            <article>
-                <BackgroundInfo>{company[0].qtd}</BackgroundInfo>
-                <Title>
-                    A {company[0]._id} é a empresa com mais vagas abertas!
-                </Title>
-                <p>São {company[0].qtd} vagas somente nesta empresa</p>
-                <HorizontalChart data={company} />
-            </article>
+            <Article data={estado} inPercentage={false}>
+                {estado[0]._id} lidera as buscas por profissionais de TI!
+            </Article>
+            <Article data={company} inPercentage={false}>
+                A {company[0]._id} é a empresa com mais vagas abertas!
+            </Article>
         </div>
     </div>
     </>

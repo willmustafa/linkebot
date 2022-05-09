@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBars} from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
-  const [isOpen, toggle] = useReducer(p => !p, false);
+  const [isOpen, toggle] = useReducer(p => !p, true);
 
   return (
         <Nav isOpen={isOpen} >
@@ -46,7 +46,7 @@ const Navbar = () => {
             </NavList>
             <NavFooter>
               <NavCopy>
-                Feito por Willian Mustafa -- Acesse meu Github!
+                Feito por <a href="https://github.com/willmustafa">Willian Mustafa - Acesse meu Github!</a> 
               </NavCopy>
             </NavFooter>
           </NavbarWrapper>

@@ -1,47 +1,53 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
-export const options = {
-  indexAxis: 'y',
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-    },
-    datalabels: {
-      anchor: 'end',
-      align: 'end',
-      color: '#ffffff',
-      font: {
-        weight: 'bold',
-        size: 16
-      }
-    }
-  },
-  scales:{
-    x: {
-        display: false
-    },
-    y: {
-      ticks: {
-        color: 'white',
+const HorizontalChart = (dataInput) => {
+  let options = {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+        color: '#ffffff',
         font: {
+          weight: 'bold',
           size: 16
         }
       }
+    },
+    scales:{
+      x: {
+          display: false
+      },
+      y: {
+        ticks: {
+          color: 'white',
+          font: {
+            size: 16
+          }
+        }
+      }
+    },
+    barThickness: 20,
+    borderRadius: 5,
+    order: 1,
+    layout: {
+      padding: {
+        right: 50
+      }
     }
-  },
-  barThickness: 20,
-  borderRadius: 5,
-  order: 1,
-  layout: {
-    padding: {
-      right: 50
-    }
-  }
-};
+  };
 
-const HorizontalChart = (dataInput) => {
+  if(dataInput.inPercentage){
+    options.plugins.datalabels.formatter = function(value, total) {
+      return value + '%';
+    };
+  }
+
   
   const data = {
     labels: dataInput.data.map(el => el._id),
@@ -55,7 +61,7 @@ const HorizontalChart = (dataInput) => {
     ]
   };
 
-  return <Bar options={options} data={data} />;
+  return <Bar className="z-index-2" options={options} data={data} />;
 }
 
 export default HorizontalChart

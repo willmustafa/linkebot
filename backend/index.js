@@ -22,7 +22,7 @@ mongoose.connect(
     process.env.mongo
 )
 .then(() => {
-    app.listen(3030)
+    app.listen(process.env.PORT || 3000)
 })
 .catch((err) => {
     console.log("Deu ruim")
