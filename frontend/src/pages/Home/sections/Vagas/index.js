@@ -16,32 +16,32 @@ const Vagas = () => {
     const [company, setCompany] = useState([{_id: "IBM", qtd: 1}])
 
     useEffect(() => {
-        fetch('http://localhost:3030/jobs/').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/`).then(res => res.json())
         .then(data => {
             setVagas(data[0].qtd.toLocaleString('pt-BR'));
             setData((new Date(data[0]._id)).toLocaleString('pt-BR', {month: 'long', year: 'numeric'}))
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/jobs/by-level').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/by-level`).then(res => res.json())
         .then(data => {
             setNivelConhecimento(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/jobs/by-state').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/by-state`).then(res => res.json())
         .then(data => {
             setEstado(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/jobs/workplace').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/workplace`).then(res => res.json())
         .then(data => {
             setWorkplace(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/jobs/by-company').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/by-company`).then(res => res.json())
         .then(data => {
             setCompany(data);
         })

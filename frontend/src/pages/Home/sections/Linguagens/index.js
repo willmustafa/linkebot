@@ -39,43 +39,43 @@ const Linguagens = () => {
     }])
 
     useEffect(() => {
-        fetch('http://localhost:3030/framework/programming-languages').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/framework/programming-languages`).then(res => res.json())
         .then(data => {
             setFramework(data.filter(el => !["C", "SQL", "R"].includes(el._id)));
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/framework/databases').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/framework/databases`).then(res => res.json())
         .then(data => {
             setDatabases(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/framework/cloud-platform').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/framework/cloud-platform`).then(res => res.json())
         .then(data => {
             setCloudPlatform(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/framework/other-frameworks').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/framework/other-frameworks`).then(res => res.json())
         .then(data => {
             setOtherFrameworks(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/framework/soft-skills').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/framework/soft-skills`).then(res => res.json())
         .then(data => {
             setSoftSkills(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/framework/tools').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/framework/tools`).then(res => res.json())
         .then(data => {
             setTools(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/framework/web-frameworks').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/framework/web-frameworks`).then(res => res.json())
         .then(data => {
             setWebFrameworks(data);
         })

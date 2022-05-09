@@ -29,7 +29,13 @@ const AspectoGlobal = () => {
         qtd: 100,
         _id: "Cloud"
     }])
-    
+
+    const headerOptions = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    }
 
     const getPercentage = (value) => {
         return ((value/totalSurvey)*100).toFixed(0)
@@ -46,43 +52,43 @@ const AspectoGlobal = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:3030/survey/').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/survey/`).then(res => res.json())
         .then(data => {
             setTotalSurvey(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/survey/LanguageHaveWorkedWith').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/survey/LanguageHaveWorkedWith`).then(res => res.json())
         .then(data => {
             setLanguageHaveWorkedWith(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/survey/DatabaseHaveWorkedWith').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/survey/DatabaseHaveWorkedWith`).then(res => res.json())
         .then(data => {
             setDatabaseHaveWorkedWith(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/survey/PlatformHaveWorkedWith').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/survey/PlatformHaveWorkedWith`).then(res => res.json())
         .then(data => {
             setPlatformHaveWorkedWith(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/survey/WebframeHaveWorkedWith').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/survey/WebframeHaveWorkedWith`).then(res => res.json())
         .then(data => {
             setWebframeHaveWorkedWith(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/survey/MiscTechHaveWorkedWith').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/survey/MiscTechHaveWorkedWith`).then(res => res.json())
         .then(data => {
             setMiscTechHaveWorkedWith(data);
         })
         .catch(error => console.error(error));
 
-        fetch('http://localhost:3030/survey/ToolsTechHaveWorkedWith').then(res => res.json())
+        fetch(`${process.env.REACT_APP_API_URL}/survey/ToolsTechHaveWorkedWith`).then(res => res.json())
         .then(data => {
             setToolsTechHaveWorkedWith(data);
         })

@@ -11,3 +11,11 @@ Algumas características principais analisadas:
 Também é cruzado os dados com pesquisas mundiais sobre o ramo de programação com dados do Stack Overflow.
 
 Site desenvolvido em React.js.
+
+## Instalação Local
+
+Crie um `.env` com a variável do link da API:
+
+```
+REACT_APP_API_URL=<API LINK>
+```

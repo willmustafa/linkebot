@@ -1,7 +1,5 @@
 import React, {useReducer} from 'react'
 import {Nav, NavbarCollapse, NavbarWrapper, NavCopy, NavFooter, NavItem, NavLinkC, NavList, NavLogo, NavButton} from './NavbarElements'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faBars} from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
   const [isOpen, toggle] = useReducer(p => !p, true);
@@ -10,7 +8,7 @@ const Navbar = () => {
         <Nav isOpen={isOpen} >
           <NavbarCollapse isOpen={isOpen}>
             <NavButton id="sidebarCollapse" type="button" className='btn' onClick={toggle}>
-              <FontAwesomeIcon icon={faBars} />
+              +
             </NavButton>
           </NavbarCollapse>
           <NavbarWrapper>
