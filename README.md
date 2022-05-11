@@ -1,6 +1,6 @@
 # LinkeBot - How's Work?
 
-![](resources/StateOfJobs.png?raw=true)
+![](resources/HowsWork.png?raw=true)
 
 [Acesse o Site](https://howswork.pages.dev/)
 
