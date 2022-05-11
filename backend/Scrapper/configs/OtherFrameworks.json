@@ -1,0 +1,96 @@
+{
+    "OtherFrameworks": [
+        {
+            "name": ".NET Framework",
+            "variations": [
+            ],
+            "linkedTo": ".NET"
+        },
+        {
+            "name": "NumPy",
+            "variations": [
+            ],
+            "linkedTo": "Python"
+        },
+        {
+            "name": ".NET Core",
+            "variations": [
+                ".NET 5"
+            ],
+            "linkedTo": ".NET"
+        },
+        {
+            "name": "Pandas",
+            "variations": [
+            ],
+            "linkedTo": "Python"
+        },
+        {
+            "name": "TensorFlow",
+            "variations": [
+            ],
+            "linkedTo": "Python"
+        },
+        {
+            "name": "React Native",
+            "variations": [
+            ],
+            "linkedTo": "JavaScript"
+        },
+        {
+            "name": "Flutter",
+            "variations": [
+            ],
+            "linkedTo": "Dart"
+        },
+        {
+            "name": "Keras",
+            "variations": [
+            ],
+            "linkedTo": "Python"
+        },
+        {
+            "name": "Qt",
+            "variations": [
+            ],
+            "linkedTo": "C++"
+        },
+        {
+            "name": "Torch",
+            "variations": [
+                "PyTorch"
+            ],
+            "linkedTo": "Python"
+        },
+        {
+            "name": "Cordova",
+            "variations": [
+            ],
+            "linkedTo": "JavaScript"
+        },
+        {
+            "name": "Apache Spark",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Hadoop",
+            "variations": [
+            ],
+            "linkedTo": ""
+        },
+        {
+            "name": "Bootstrap",
+            "variations": [
+            ],
+            "linkedTo": "HTML/CSS"
+        },
+        {
+            "name": "Buma",
+            "variations": [
+            ],
+            "linkedTo": "HTML/CSS"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "linkebot-scrapper",
+  "version": "1.0.0",
+  "description": "Scrapper de vagas de emprego na área de TI no site do Linkedin.",
+  "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start-mon": "nodemon index.js"
+  },
+  "author": "Willian Mustafa",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "linkedin-jobs-scraper": "^11.1.1",
+    "mongoose": "^6.3.2"
+  }
+}

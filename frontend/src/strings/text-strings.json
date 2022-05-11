@@ -1,0 +1,108 @@
+{
+    "website": {
+        "title": "How's Work",
+        "description": "Uma análise da situação do mercado de software no Brasil em relação aos frameworks e linguagens requisitadas pelas vagas de emprego."
+    },
+    "framework-programming-languages": {
+        "default": {"qtd": 100, "_id": "JavaScript"},
+        "url": "framework/programming-languages",
+        "heading": ["", "lidera o número de vagas!"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "framework-databases": {
+        "default": {"qtd": 41, "_id": "SQL"},
+        "url": "framework/databases",
+        "heading": ["", "continua sendo o banco de dados mais requisitado"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "framework-web-frameworks": {
+        "default": {"qtd": 41, "_id": "SQL"},
+        "url": "framework/web-frameworks",
+        "heading": ["", "é o framework web mais solicitado"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "framework-soft-skills": {
+        "default": {"qtd": 41, "_id": "SQL"},
+        "url": "framework/soft-skills",
+        "heading": ["", "é uma soft skill muito requisitada"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "framework-cloud-platform": {
+        "default": {"qtd": 41, "_id": "SQL"},
+        "url": "framework/cloud-platform",
+        "heading": ["", "é a plataforma cloud mais solicitada"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "framework-other-frameworks": {
+        "default": {"qtd": 41, "_id": "SQL"},
+        "url": "framework/other-frameworks",
+        "heading": ["", "é um framework muito requisitado"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "framework-tools": {
+        "default": {"qtd": 41, "_id": "SQL"},
+        "url": "framework/tools",
+        "heading": ["", "é uma das ferramentas mais pedidas"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "jobs-by-level": {
+        "default": {"qtd": 561, "_id": "Pleno"},
+        "url": "jobs/by-level",
+        "heading": ["A busca por profissional", "está em alta!"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "jobs-workplace": {
+        "default": {"qtd": 561, "_id": "Pleno"},
+        "url": "jobs/workplace",
+        "heading": ["O trabalho", "ainda é uma preferência pelas empresas!"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "jobs-by-state": {
+        "default": {"qtd": 561, "_id": "Pleno"},
+        "url": "jobs/by-state",
+        "heading": ["", "lidera as buscas por profissionais de TI!"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "jobs-by-company": {
+        "default": {"qtd": 561, "_id": "Pleno"},
+        "url": "jobs/by-company",
+        "heading": ["A", "é a empresa com mais vagas abertas!"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "survey-LanguageHaveWorkedWith": {
+        "default": {"qtd": 561, "_id": "Pleno"},
+        "url": "survey/LanguageHaveWorkedWith",
+        "heading": ["", "é a linguagem mais usada pelos programadores"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "survey-DatabaseHaveWorkedWith": {
+        "default": {"qtd": 561, "_id": "Pleno"},
+        "url": "survey/DatabaseHaveWorkedWith",
+        "heading": ["", "continua sendo o banco de dados mais utilizado"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "survey-PlatformHaveWorkedWith": {
+        "default": {"qtd": 561, "_id": "Pleno"},
+        "url": "survey/PlatformHaveWorkedWith",
+        "heading": ["", "é a plataforma cloud mais utilizada"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "survey-WebframeHaveWorkedWith": {
+        "default": {"qtd": 561, "_id": "Pleno"},
+        "url": "survey/WebframeHaveWorkedWith",
+        "heading": ["", "é o Framework Web mais utilizada"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "survey-MiscTechHaveWorkedWith": {
+        "default": {"qtd": 561, "_id": "Pleno"},
+        "url": "survey/MiscTechHaveWorkedWith",
+        "heading": ["", "é o framework mais utilizado"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    },
+    "survey-ToolsTechHaveWorkedWith": {
+        "default": {"qtd": 561, "_id": "Pleno"},
+        "url": "survey/ToolsTechHaveWorkedWith",
+        "heading": ["", "é a ferramenta mais utilizada"],
+        "description": ["São", "vagas para profissionais de nível", "."]
+    }
+}
