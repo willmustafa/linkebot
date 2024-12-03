@@ -12,7 +12,7 @@ async function runScrapper() {
     // Concurrent queries will run on different pages within the same browser instance.
     const scraper = new LinkedinScraper({
         headless: true,
-        slowMo: 200,
+        slowMo: 300,
         args: [
             "--lang=pt-BR",
         ],
@@ -78,11 +78,11 @@ async function runScrapper() {
                 query: "Engenharia de software"
             },
             {
-                query: "Ciência de dados"
+                query: "Node.js"
             }
         ], { // Global options, will be merged individually with each query options
             locations: ["Brasil"],
-            optimize: true,
+            optimize: false,
             limit: 1000,
             options: {
                 filters: {                    
