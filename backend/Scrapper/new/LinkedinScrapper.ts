@@ -77,28 +77,36 @@ class LinkedinScrapper {
 
             await this.page.goto(`https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(jobTitle)}&location=${encodeURIComponent(location)}`);
 
-            await this.page.waitForSelector('#main ul');
+            let hasPagination = true
 
-            const jobs = await this.page.$$('.scaffold-layout__list-item')
-            const foundJobs = []
+            while (hasPagination) {
+                await this.page.waitForSelector('#main ul');
 
-            for (const job of jobs) {
-                await job.click();
+                const jobs = await this.page.$$('.scaffold-layout__list-item')
+                const foundJobs = []
 
-                await sleep(300)
+                for (const job of jobs) {
+                    await job.click();
 
-                const title = await this.getTextFromPage('.job-details-jobs-unified-top-card__job-title')
-                const description = await this.getTextFromPage('.jobs-description__content.jobs-description-content')
-                const company = await this.getTextFromPage('.job-details-jobs-unified-top-card__company-name')
-                const whereHow = await this.getTextFromPage('.job-details-jobs-unified-top-card__job-insight.job-details-jobs-unified-top-card__job-insight--highlight')
-                const matched = await this.getTextFromPage('.job-details-jobs-unified-top-card__job-insight-text-button')
+                    await sleep(Math.floor(Math.random() * (400 - 200 + 1)) + 200)
 
-                foundJobs.push([{title, description, company, whereHow, matched}])
+                    const title = await this.getTextFromPage('.job-details-jobs-unified-top-card__job-title')
+                    const description = await this.getTextFromPage('.jobs-description__content.jobs-description-content')
+                    const company = await this.getTextFromPage('.job-details-jobs-unified-top-card__company-name')
+                    const whereHow = await this.getTextFromPage('.job-details-jobs-unified-top-card__job-insight.job-details-jobs-unified-top-card__job-insight--highlight')
+                    const matched = await this.getTextFromPage('.job-details-jobs-unified-top-card__job-insight-text-button')
+
+                    foundJobs.push([{title, description, company, whereHow, matched}])
+                }
+
+                const paginationButtons = await this.page.$$('.artdeco-pagination button');
+
+                const currentIndex = await this.page.evaluate((buttons) => {
+                    return buttons.findIndex(async button => await button.evaluate(async body => await body.getAttribute(('aria-current'))) === 'true');
+                }, paginationButtons);
+
+                await paginationButtons[currentIndex + 1].click();
             }
-
-            return foundJobs;
-
-
         } catch (error) {
             console.error('Scraping error:', error);
             return [];
