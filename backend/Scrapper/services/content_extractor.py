@@ -19,5 +19,8 @@ def extract_frameworks(description, keywords):
 
 def prepare_jobs(jobs):
     for job in jobs:
-        job["frameworks"] = extract_frameworks(job["description"], get_keywords_map(framework_list()))
-        job["benefits"] = extract_frameworks(job["description"], get_keywords_map(benefits_list()))
+        try:
+            job["frameworks"] = extract_frameworks(job["description"], get_keywords_map(framework_list()))
+            job["benefits"] = extract_frameworks(job["description"], get_keywords_map(benefits_list()))
+        except:
+            print("erro no job: ", job)
