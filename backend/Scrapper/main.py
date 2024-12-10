@@ -10,7 +10,8 @@ def main():
     print(f"Found {len(jobs)} jobs")
     
     operations = process_jobs_and_create_operations(jobs)
-    insert_or_update_jobs(collection, operations)
+    if operations:
+        insert_or_update_jobs(collection, operations)
     
     client.close()
 

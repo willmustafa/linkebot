@@ -13,14 +13,17 @@ def get_keywords_map(data):
     return framework_map
 
 def extract_frameworks(description, keywords):
-    matches = re.findall(r'\b(?:' + '|'.join(keywords.keys()) + r')\b', description, re.IGNORECASE)
-    standardized_frameworks = {keywords[match.lower()] for match in matches}
-    return list(standardized_frameworks)
+    if isinstance(description, str):
+        matches = re.findall(r'\b(?:' + '|'.join(keywords.keys()) + r')\b', description, re.IGNORECASE)
+        standardized_frameworks = {keywords[match.lower()] for match in matches}
+        return list(standardized_frameworks)
+    else:
+        return list()
 
 def prepare_jobs(jobs):
     for job in jobs:
         try:
             job["frameworks"] = extract_frameworks(job["description"], get_keywords_map(framework_list()))
             job["benefits"] = extract_frameworks(job["description"], get_keywords_map(benefits_list()))
-        except:
-            print("erro no job: ", job)
+        except Exception as inst:
+            print("erro no job: ", inst)
