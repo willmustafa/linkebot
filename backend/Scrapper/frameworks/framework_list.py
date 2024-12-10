@@ -394,12 +394,6 @@ def framework_list():
             "linkedTo": ""
         },
         {
-            "name": "C",
-            "variations": [
-            ],
-            "linkedTo": ".NET"
-        },
-        {
             "name": "PowerShell",
             "variations": [
             ],
@@ -444,12 +438,6 @@ def framework_list():
         },
         {
             "name": "Swift",
-            "variations": [
-            ],
-            "linkedTo": ""
-        },
-        {
-            "name": "R",
             "variations": [
             ],
             "linkedTo": ""
